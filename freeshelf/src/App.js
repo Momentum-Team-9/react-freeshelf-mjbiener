@@ -9,7 +9,7 @@ export const App = () => {
 //  const newBooks = books.map((dev))
   return (
     <>
-      <div className='flex center five'>
+      <div className='flex center'>
         <h1> Freeshelf Library</h1>
       </div>
       <div className='flex center'>
