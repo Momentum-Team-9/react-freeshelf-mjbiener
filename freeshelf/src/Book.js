@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+
 
 export const Book = ({title, author, url, shortDescription, coverImageUrl, publisher, publicationDate, detailedDescription}) => {
     const [isExpanded, setIsExpanded] = useState(false)
@@ -15,14 +16,18 @@ export const Book = ({title, author, url, shortDescription, coverImageUrl, publi
         <div className='card-content'>
           <p><span>Author:</span>{author}</p>
           <p><span>Description:</span> {shortDescription} </p>
-          <img src= {coverImageUrl} alt={title}></img>
+          <img src= {coverImageUrl} alt={title} width="200"></img>
 
-          {isExpanded ? <a href='#' onClick={handleExpanded}>Show Less <i class='fas fa-caret-up' /></a> : <a href='#' onClick={handleExpanded}>Show More <i class='fas fa-caret-down' /></a>}
+          {isExpanded ? <button onClick={handleExpanded} aria-expanded="false" aria-controls="collapseExample">Less Information</button> : 
+          <button onClick={handleExpanded} aria-expanded="true" aria-controls="collapseExpample">More Information </button>}
+
           {isExpanded &&
-            <p>{url} {publisher}
-            {publisher}
-            {publicationDate}
-            {detailedDescription}</p>
+            <div>
+            Link: <a href={url} rel="noopener noreferrer">{url}</a> 
+            <p>Publisher: {publisher}</p>
+            <p>Published: {publicationDate}</p>
+            <p>Detailed Description: {detailedDescription}</p>
+            </div>
             }
         </div>
         <footer>
